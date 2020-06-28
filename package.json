@@ -10,9 +10,9 @@
     "build": "npm run build:umd && npm run build:es",
     "build:umd": "NODE_ENV=production webpack -p",
     "build:es": "BABEL_ENV=module babel src -d dist/es",
-    "prepublish": "npm run build",
     "flow": "flow",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prepublish": "npm run flow && npm run lint && npm run build && npm run test"
   },
   "author": "Pedro Lourenço <pedro@pedrolourenco.net>",
   "license": "Apache-2.0",
