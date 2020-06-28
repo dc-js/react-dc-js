@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
-import { useChart } from '../src/charts/use-chart'
-import chartMock from './mocks/chart.mock'
+import { useChart } from 'src/charts/use-chart'
+import chartMock from '../mocks/chart.mock'
 
 describe('chart', () => {
   it('should render', () => {
