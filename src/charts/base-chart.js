@@ -1,15 +1,22 @@
 // @flow
 
 import React from 'react'
-import { useChart } from './use-chart'
-import { combineMixins } from '../utils'
 import { baseMixin } from '../mixins'
-import type { Mixin } from '../mixins'
+import type { MixinProps } from '../mixins'
+import { combineMixins } from '../utils'
+import { useChart } from './use-chart'
 
+/**
+ * A helper function for generic charts.
+ * Allows the hook to remain modular and not return HTML.
+ * @param props
+ * @param chartFunc
+ * @param mixins
+ */
 export function BaseChart(
-  props: any,
+  props: $Shape<MixinProps>,
   chartFunc: any => mixed,
-  mixins: Array<Mixin> = [baseMixin]
+  mixins: Array<(any, MixinProps) => mixed> = [baseMixin]
 ) {
   const [, chartRef] = useChart(chartFunc, props, combineMixins(mixins))
 

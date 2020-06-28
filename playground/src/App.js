@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import crossfilter from 'crossfilter2'
+import crossfilter from 'crossfilter'
 import * as d3 from 'd3'
 import csv from './ndx.csv'
 import { BarChart, PieChart, BubbleChart } from 'react-dc-js'
