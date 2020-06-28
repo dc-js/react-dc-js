@@ -57,6 +57,10 @@ const config = target => ({
     ],
   },
   resolve: {
+    alias: {
+      src: path.resolve(__dirname, 'src/'),
+      crossfilter: 'crossfilter2',
+    },
     extensions: ['.css', '.js', '.jsx', '.mjs'],
   },
   output: {

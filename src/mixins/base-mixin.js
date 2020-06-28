@@ -11,7 +11,7 @@ type Filterable = FilterableExact | FilterableRange | FilterableFunction
  * from a BaseMixin.
  */
 export type BaseMixinProps = {
-  dimension?: {
+  dimension: {
     filter: Filterable => Array<Primitive>,
     filterExact: FilterableExact => Array<Primitive>,
     filterRange: FilterableRange => Array<Primitive>,
@@ -27,7 +27,7 @@ export type BaseMixinProps = {
     accessor: any,
     id: () => number,
   },
-  group?: any,
+  group: any,
   filterHandler?: Function,
   renderlet?: Function,
   pretransition?: Function,
@@ -60,10 +60,7 @@ const events = [
  * @param chart
  * @param props
  */
-export function baseMixin(
-  chart: Object,
-  props: BaseMixinProps
-): BaseMixinProps {
+export function baseMixin(chart: any, props: BaseMixinProps) {
   const { filterHandler, showControls, ...rest } = props
 
   // chart[showControls ? 'turnOffControls' : 'turnOnControls']()

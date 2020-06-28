@@ -8,16 +8,14 @@ type Stack = {
 
 export type StackMixinProps = {
   stack?: Stack,
-  stacks?: Array<Stack>,
+  stacks: Array<Stack>,
 }
 
-export function stackMixin(
-  chart: Object,
-  props: StackMixinProps
-): StackMixinProps {
-  const { stacks, ...rest } = props
-  stacks &&
-    stacks.forEach(stack =>
+export function stackMixin(chart: any, props: StackMixinProps) {
+  const { stacks, stack, ...rest } = props
+  const _stacks = stacks || (stack && [stack])
+  _stacks &&
+    _stacks.forEach(stack =>
       chart.stack(stack.group, stack.name, stack.accessor)
     )
   return rest
