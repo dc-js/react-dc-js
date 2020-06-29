@@ -66,7 +66,7 @@ const config = target => ({
   output: {
     path: path.join(__dirname, 'dist/'),
     filename: `react-dc.${target}.js`,
-    library: 'react-dc',
+    library: 'ReactDc',
     libraryTarget: target,
   },
   optimization: {
@@ -84,4 +84,4 @@ const config = target => ({
 })
 
 // noinspection WebpackConfigHighlighting
-module.exports = [config('commonjs')]
+module.exports = [config('umd')]

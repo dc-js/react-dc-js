@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "crossfilter2": "^1.5.2",
-    "d3": "^5.16.0",
+    "crossfilter2": "file:../node_modules/crossfilter2",
+    "d3": "file:../node_modules/d3",
     "react": "file:../node_modules/react",
     "react-dc-js": "file:..",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-dom": "file:../node_modules/react-dom",
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

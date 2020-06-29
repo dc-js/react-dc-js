@@ -2,7 +2,7 @@
   "name": "react-dc-js",
   "version": "0.1.0",
   "description": "🚀 Multi-dimensional charting based on dc.js for React",
-  "main": "dist/react-dc.commonjs.js",
+  "main": "dist/react-dc.umd.js",
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "scripts": {
