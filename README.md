@@ -19,7 +19,7 @@ Documentation for specific chart properties won't be available before the  first
 ### Using npm
 
 ```shell script
-npm install react-dc-js
+$ npm install react-dc-js
 ```
 
 ## Usage
@@ -46,17 +46,25 @@ We provide a playground and a development server for you to experiment with any 
 
 ```shell script
 $ npm install
+
 $ cd playground
 $ npm install
 $ npm start
 ```
 
-## Contributing
+Optionally, you can also use `npm link` if you prefer to import from `react-dc-js` inside playground.
+
+### Contributing
 
 We welcome community support with both pull requests and reporting bugs.
 
-react-dc-js contains npm scripts for building, testing, linting (with prettier) and static type checking
-(with flow.js).
+To enable hot compilation while experimenting in the playground, run in a new tab:
+
+```shell script
+$ npm run build:watch
+```
+
+react-dc-js is linted with `prettier` and provides `flow.js` as a static type checker.
 
 ## License
 

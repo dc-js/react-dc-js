@@ -6,6 +6,8 @@ import type { MixinProps } from '../mixins'
 import { combineMixins } from '../utils'
 import { useChart } from './use-chart'
 
+import 'dc/dist/style/dc.css'
+
 /**
  * A helper function for generic charts.
  * Allows the hook to remain modular and not return HTML.

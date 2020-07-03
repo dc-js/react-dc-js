@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import crossfilter from 'crossfilter2'
 import * as d3 from 'd3'
 import csv from './ndx.csv'
-import { BarChart, PieChart, BubbleChart } from 'react-dc-js'
+import { BarChart, PieChart, BubbleChart } from '../../dist/es'
 
-import 'dc/dist/style/dc.css'
 import './App.css'
 
 const numberFormat = d3.format('.2f')

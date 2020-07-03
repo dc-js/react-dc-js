@@ -3,18 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "crossfilter2": "file:../node_modules/crossfilter2",
-    "d3": "file:../node_modules/d3",
-    "react": "file:../node_modules/react",
-    "react-dc-js": "file:..",
-    "react-dom": "file:../node_modules/react-dom",
+    "@craco/craco": "^5.6.4",
+    "crossfilter2": "^1.5.2",
+    "d3": "^5.16.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,6 +29,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }
