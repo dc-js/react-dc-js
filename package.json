@@ -80,7 +80,8 @@
   "jest": {
     "moduleNameMapper": {
       "^src(.*)$": "<rootDir>/src/$1",
-      "crossfilter": "<rootDir>/node_modules/crossfilter2"
+      "crossfilter": "<rootDir>/node_modules/crossfilter2",
+      "\\.(css|less)$": "<rootDir>/test/mocks/style.mock.js"
     },
     "moduleFileExtensions": [
       "jsx",
