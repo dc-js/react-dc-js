@@ -27,6 +27,8 @@ import { useChart } from '../charts/use-chart'
 import { baseMixin, stackMixin } from '../mixins'
 import type { BaseMixinProps, StackMixinProps } from '../mixins'
 import { BaseChart } from './base-chart'
+import { LineChart } from './line-chart'
+import { RangeChart } from './range-chart-provider'
 
 export const BarChart = (props: BaseMixinProps & StackMixinProps) =>
   BaseChart(props, barChart, [baseMixin, stackMixin])
@@ -47,7 +49,7 @@ export const Heatmap = (props: BaseMixinProps) => BaseChart(props, heatMap)
 export const HtmlLegend = (props: BaseMixinProps) =>
   BaseChart(props, htmlLegend)
 export const Legend = (props: BaseMixinProps) => BaseChart(props, legend)
-export const LineChart = (props: BaseMixinProps) => BaseChart(props, lineChart)
+// export const LineChart = (props: BaseMixinProps) => BaseChart(props, lineChart)
 export const NumberDisplay = (props: BaseMixinProps) =>
   BaseChart(props, numberDisplay)
 export const RowChart = (props: BaseMixinProps) => BaseChart(props, rowChart)
@@ -61,4 +63,4 @@ export const SunburstChart = (props: BaseMixinProps) =>
   BaseChart(props, sunburstChart)
 export const TextFilterWidget = (props: BaseMixinProps) =>
   BaseChart(props, textFilterWidget)
-export { useChart }
+export { useChart, RangeChart, LineChart }
