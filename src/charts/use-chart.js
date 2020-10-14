@@ -36,5 +36,5 @@ export function useChart(
     }
   }, [chartFunc, props, mixin])
 
-  return [chart, chartRef]
+  return [chart.current, chartRef]
 }

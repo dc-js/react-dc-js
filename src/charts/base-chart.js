@@ -4,29 +4,31 @@ import React, { useContext, useEffect } from 'react'
 import { baseMixin } from '../mixins'
 import type { MixinProps } from '../mixins'
 import { combineMixins } from '../utils'
-import { RangeChartContext } from './range-chart-provider'
+import { ChartRegistry } from './chart-context'
 import { useChart } from './use-chart'
 
 import 'dc/dist/style/dc.css'
 
 /**
- * A helper function for generic charts.
- * Allows the hook to remain modular and not return HTML.
- * @param props
+ * A generic chart component factory
  * @param chartFunc
  * @param mixins
  */
 export function BaseChart(
-  props: $Shape<MixinProps>,
   chartFunc: any => mixed,
   mixins: Array<(any, MixinProps) => mixed> = [baseMixin]
 ) {
-  const [chart, chartRef] = useChart(chartFunc, props, combineMixins(mixins))
-  const { setRangeChart } = useContext(RangeChartContext)
+  return function Chart({ id, ...rest }: $Shape<MixinProps>) {
+    const [chart, chartRef] = useChart(chartFunc, rest, combineMixins(mixins))
+    const { dispatch } = useContext(ChartRegistry) || {}
 
-  useEffect(() => {
-    setRangeChart(chart.current)
-  }, [chart, setRangeChart])
+    useEffect(() => {
+      if (dispatch && id) {
+        dispatch({ type: 'register', chart, id })
+        return () => dispatch({ type: 'remove', chart, id })
+      }
+    }, [id, chart, dispatch])
 
-  return <div ref={chartRef} />
+    return <div ref={chartRef} />
+  }
 }

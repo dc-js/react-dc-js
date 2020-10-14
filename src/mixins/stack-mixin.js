@@ -11,7 +11,10 @@ export type StackMixinProps = {
   stacks: Array<Stack>,
 }
 
-export function stackMixin(chart: any, props: StackMixinProps) {
+export function stackMixin(
+  chart: any,
+  props: StackMixinProps
+): $Shape<StackMixinProps> {
   const { stacks, stack, ...rest } = props
   const _stacks = stacks || (stack && [stack])
   _stacks &&
