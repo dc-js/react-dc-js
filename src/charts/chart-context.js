@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { createContext, useReducer } from 'react'
 
 export default function ChartContext({ children }) {
-  const [charts, dispatch] = React.useReducer(reducer, {})
+  const [charts, dispatch] = useReducer(reducer, {})
 
   return (
     <ChartRegistry.Provider value={{ charts, dispatch }}>
@@ -10,10 +10,10 @@ export default function ChartContext({ children }) {
   )
 }
 
-function reducer(state, action) {
+// Only exported for testing
+export function reducer(state, action) {
   switch (action.type) {
     case 'register':
-      console.log({ ...state, [action.id]: action.chart })
       return { ...state, [action.id]: action.chart }
     case 'remove':
       const { [action.id]: _, ...rest } = state
@@ -23,4 +23,4 @@ function reducer(state, action) {
   }
 }
 
-export const ChartRegistry = React.createContext(null)
+export const ChartRegistry = createContext(null)

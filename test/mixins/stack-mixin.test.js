@@ -23,7 +23,7 @@ describe('stack mixin', () => {
     chartFunc.stack = jest.fn()
     jest.spyOn(chartFunc, 'stack')
 
-    const Chart = props => BaseChart(props, () => chartFunc, [stackMixin])
+    const Chart = BaseChart(() => chartFunc, [stackMixin])
     render(<Chart stacks={stacks} />)
     expect(chartFunc.stack).toBeCalledTimes(2)
     expect(chartFunc.stack).toBeCalledWith({}, 'foo', null)
