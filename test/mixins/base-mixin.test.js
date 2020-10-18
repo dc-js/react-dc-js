@@ -11,7 +11,7 @@ describe('base mixin', () => {
     chartFunc.foo = jest.fn()
     jest.spyOn(chartFunc, 'foo')
 
-    const Chart = props => BaseChart(props, () => chartFunc, [])
+    const Chart = BaseChart(() => chartFunc, [])
     render(<Chart foo="bar" />)
     expect(chartFunc.foo).toHaveBeenCalledTimes(1)
     expect(chartFunc.foo).toHaveBeenCalledWith('bar')
@@ -33,7 +33,7 @@ describe('base mixin', () => {
     jest.spyOn(chartFunc, 'addFilterHandler')
     jest.spyOn(chartFunc, 'on')
 
-    const Chart = props => BaseChart(props, () => chartFunc, [baseMixin])
+    const Chart = BaseChart(() => chartFunc, [baseMixin])
     render(
       <Chart
         filterHandler={filterHandler}

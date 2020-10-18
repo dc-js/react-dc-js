@@ -13,7 +13,6 @@ import {
   heatMap,
   htmlLegend,
   legend,
-  lineChart,
   numberDisplay,
   pieChart,
   rowChart,
@@ -25,40 +24,28 @@ import {
 } from 'dc'
 import { useChart } from '../charts/use-chart'
 import { baseMixin, stackMixin } from '../mixins'
-import type { BaseMixinProps, StackMixinProps } from '../mixins'
 import { BaseChart } from './base-chart'
+import ChartContext from './chart-context'
+import { LineChart } from './line-chart'
 
-export const BarChart = (props: BaseMixinProps & StackMixinProps) =>
-  BaseChart(props, barChart, [baseMixin, stackMixin])
-export const BoxPlot = (props: BaseMixinProps) => BaseChart(props, boxPlot)
-export const BubbleChart = (props: BaseMixinProps) =>
-  BaseChart(props, bubbleChart)
-export const PieChart = (props: BaseMixinProps) => BaseChart(props, pieChart)
-export const BubbleOverlay = (props: BaseMixinProps) =>
-  BaseChart(props, bubbleOverlay)
-export const CboxMenu = (props: BaseMixinProps) => BaseChart(props, cboxMenu)
-export const CompositeChart = (props: BaseMixinProps) =>
-  BaseChart(props, compositeChart)
-export const DataCount = (props: BaseMixinProps) => BaseChart(props, dataCount)
-export const DataTable = (props: BaseMixinProps) => BaseChart(props, dataTable)
-export const GeoChoroplethChart = (props: BaseMixinProps) =>
-  BaseChart(props, geoChoroplethChart)
-export const Heatmap = (props: BaseMixinProps) => BaseChart(props, heatMap)
-export const HtmlLegend = (props: BaseMixinProps) =>
-  BaseChart(props, htmlLegend)
-export const Legend = (props: BaseMixinProps) => BaseChart(props, legend)
-export const LineChart = (props: BaseMixinProps) => BaseChart(props, lineChart)
-export const NumberDisplay = (props: BaseMixinProps) =>
-  BaseChart(props, numberDisplay)
-export const RowChart = (props: BaseMixinProps) => BaseChart(props, rowChart)
-export const ScatterPlot = (props: BaseMixinProps) =>
-  BaseChart(props, scatterPlot)
-export const SelectMenu = (props: BaseMixinProps) =>
-  BaseChart(props, selectMenu)
-export const SeriesChart = (props: BaseMixinProps) =>
-  BaseChart(props, seriesChart)
-export const SunburstChart = (props: BaseMixinProps) =>
-  BaseChart(props, sunburstChart)
-export const TextFilterWidget = (props: BaseMixinProps) =>
-  BaseChart(props, textFilterWidget)
-export { useChart }
+export const BarChart = BaseChart(barChart, [baseMixin, stackMixin])
+export const BoxPlot = BaseChart(boxPlot)
+export const BubbleChart = BaseChart(bubbleChart)
+export const PieChart = BaseChart(pieChart)
+export const BubbleOverlay = BaseChart(bubbleOverlay)
+export const CboxMenu = BaseChart(cboxMenu)
+export const CompositeChart = BaseChart(compositeChart)
+export const DataCount = BaseChart(dataCount)
+export const DataTable = BaseChart(dataTable)
+export const GeoChoroplethChart = BaseChart(geoChoroplethChart)
+export const Heatmap = BaseChart(heatMap)
+export const HtmlLegend = BaseChart(htmlLegend)
+export const Legend = BaseChart(legend)
+export const NumberDisplay = BaseChart(numberDisplay)
+export const RowChart = BaseChart(rowChart)
+export const ScatterPlot = BaseChart(scatterPlot)
+export const SelectMenu = BaseChart(selectMenu)
+export const SeriesChart = BaseChart(seriesChart)
+export const SunburstChart = BaseChart(sunburstChart)
+export const TextFilterWidget = BaseChart(textFilterWidget)
+export { useChart, LineChart, ChartContext }

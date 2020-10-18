@@ -9,5 +9,7 @@ playground
 [lints]
 
 [options]
+well_formed_exports=false
+types_first=false
 
 [strict]

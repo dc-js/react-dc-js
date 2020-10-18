@@ -1,5 +1,9 @@
+import React from 'react'
+import { render } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
+import { BaseChart } from 'src/charts/base-chart'
 import { useChart } from 'src/charts/use-chart'
+import { baseMixin } from 'src/mixins'
 import chartMock from '../mocks/chart.mock'
 
 describe('chart', () => {
