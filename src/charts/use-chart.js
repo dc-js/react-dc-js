@@ -34,7 +34,7 @@ export function useChart(
     } else {
       chart.current.redraw()
     }
-  }, [chartFunc, props, mixin])
+  }, [chartFunc, mixin, props])
 
   return [chart, chartRef]
 }

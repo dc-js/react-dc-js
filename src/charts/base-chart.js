@@ -14,20 +14,22 @@ import 'dc/dist/style/dc.css'
  * @param chartFunc
  * @param mixins
  */
+
 export function BaseChart(
   chartFunc: any => mixed,
   mixins: Array<(any, MixinProps) => mixed> = [baseMixin]
 ) {
-  return function Chart({ id, ...rest }: $Shape<MixinProps>) {
-    const [chart, chartRef] = useChart(chartFunc, rest, combineMixins(mixins))
+  const mixin = combineMixins(mixins)
+  return function Chart(props: $Shape<MixinProps>) {
+    const [chart, chartRef] = useChart(chartFunc, props, mixin)
     const { dispatch } = useContext(ChartRegistry) || {}
 
     useEffect(() => {
-      if (dispatch && id) {
-        dispatch({ type: 'register', chart, id })
-        return () => dispatch({ type: 'remove', chart, id })
+      if (dispatch && props.id) {
+        dispatch({ type: 'register', chart, id: props.id })
+        return () => dispatch({ type: 'remove', chart, id: props.id })
       }
-    }, [id, chart, dispatch])
+    }, [props.id, chart, dispatch])
 
     return <div ref={chartRef} />
   }

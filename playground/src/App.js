@@ -7,7 +7,6 @@ import {
   PieChart,
   BubbleChart,
   LineChart,
-  RangeChart,
   ChartContext,
 } from '../../dist/es'
 
@@ -103,96 +102,94 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <ChartContext>
-          <BubbleChart
-            width={990}
-            height={250}
-            transitionDuration={1500}
-            margins={{ top: 10, right: 50, bottom: 30, left: 40 }}
-            dimension={yearlyDimension}
-            group={yearlyPerformanceGroup}
-            colors={d3.schemeRdYlGn[9]}
-            colorDomain={[-500, 500]}
-            colorAccessor={d => d.value.absGain}
-            keyAccessor={p => p.value.absGain}
-            valueAccessor={p => p.value.percentageGain}
-            radiusValueAccessor={p => p.value.fluctuationPercentage}
-            maxBubbleRelativeSize={0.3}
-            x={d3.scaleLinear().domain([-2500, 2500])}
-            y={d3.scaleLinear().domain([-100, 100])}
-            r={d3.scaleLinear().domain([0, 4000])}
-            elasticY={true}
-            elasticX={true}
-            yAxisPadding={100}
-            xAxisPadding={500}
-            renderHorizontalGridLines={true}
-            renderVerticalGridLines={true}
-            xAxisLabel={'Index Gain'}
-            yAxisLabel={'Index Gain %'}
-            renderLabel={true}
-            label={p => p.key}
-            renderTitle={true}
-            title={p =>
-              [
-                p.key,
-                `Index Gain: ${numberFormat(p.value.absGain)}`,
-                `Index Gain in Percentage: ${numberFormat(
-                  p.value.percentageGain
-                )}%`,
-                `Fluctuation / Index Ratio: ${numberFormat(
-                  p.value.fluctuationPercentage
-                )}%`,
-              ].join('\n')
-            }
-          />
-          <PieChart
-            dimension={gainOrLoss}
-            group={gainOrLossGroup}
-            width={180}
-            height={180}
-            radius={80}
-          />
-          <LineChart
-            renderArea={true}
-            width={990}
-            height={200}
-            dimension={moveMonths}
-            group={indexAvgByMonthGroup}
-            x={d3
-              .scaleTime()
-              .domain([new Date(1985, 0, 1), new Date(2012, 11, 31)])}
-            round={d3.timeMonth.round}
-            xUnits={d3.timeMonths}
-            elasticY={true}
-            renderHorizontalGridLines={true}
-            valueAccessor={d => d.value.avg}
-            brushOn={false}
-            stack={{
-              group: monthlyMoveGroup,
-              name: 'yolo',
-              accessor: d => d.value,
-            }}
-            rangeChart="testing"
-          />
-          <BarChart
-            id="testing"
-            dimension={moveMonths}
-            group={volumeByMonthGroup}
-            width={990}
-            height={180}
-            radius={80}
-            centerBar={true}
-            gap={1}
-            x={d3
-              .scaleTime()
-              .domain([new Date(1985, 0, 1), new Date(2012, 11, 31)])}
-            round={d3.timeMonth.round}
-            alwaysUseRounding={true}
-            xUnits={d3.timeMonths}
-          />
-        </ChartContext>
-      </header>
+      <ChartContext>
+        <BubbleChart
+          width={990}
+          height={250}
+          transitionDuration={1500}
+          margins={{ top: 10, right: 50, bottom: 30, left: 40 }}
+          dimension={yearlyDimension}
+          group={yearlyPerformanceGroup}
+          colors={d3.schemeRdYlGn[9]}
+          colorDomain={[-500, 500]}
+          colorAccessor={d => d.value.absGain}
+          keyAccessor={p => p.value.absGain}
+          valueAccessor={p => p.value.percentageGain}
+          radiusValueAccessor={p => p.value.fluctuationPercentage}
+          maxBubbleRelativeSize={0.3}
+          x={d3.scaleLinear().domain([-2500, 2500])}
+          y={d3.scaleLinear().domain([-100, 100])}
+          r={d3.scaleLinear().domain([0, 4000])}
+          elasticY={true}
+          elasticX={true}
+          yAxisPadding={100}
+          xAxisPadding={500}
+          renderHorizontalGridLines={true}
+          renderVerticalGridLines={true}
+          xAxisLabel={'Index Gain'}
+          yAxisLabel={'Index Gain %'}
+          renderLabel={true}
+          label={p => p.key}
+          renderTitle={true}
+          title={p =>
+            [
+              p.key,
+              `Index Gain: ${numberFormat(p.value.absGain)}`,
+              `Index Gain in Percentage: ${numberFormat(
+                p.value.percentageGain
+              )}%`,
+              `Fluctuation / Index Ratio: ${numberFormat(
+                p.value.fluctuationPercentage
+              )}%`,
+            ].join('\n')
+          }
+        />
+        <PieChart
+          dimension={gainOrLoss}
+          group={gainOrLossGroup}
+          width={180}
+          height={180}
+          radius={80}
+        />
+        <LineChart
+          renderArea={true}
+          width={990}
+          height={200}
+          dimension={moveMonths}
+          group={indexAvgByMonthGroup}
+          x={d3
+            .scaleTime()
+            .domain([new Date(1985, 0, 1), new Date(2012, 11, 31)])}
+          round={d3.timeMonth.round}
+          xUnits={d3.timeMonths}
+          elasticY={true}
+          renderHorizontalGridLines={true}
+          valueAccessor={d => d.value.avg}
+          brushOn={false}
+          stack={{
+            group: monthlyMoveGroup,
+            name: 'yolo',
+            accessor: d => d.value,
+          }}
+          rangeChart="testing"
+        />
+        <BarChart
+          id="testing"
+          dimension={moveMonths}
+          group={volumeByMonthGroup}
+          width={990}
+          height={180}
+          radius={80}
+          centerBar={true}
+          gap={1}
+          x={d3
+            .scaleTime()
+            .domain([new Date(1985, 0, 1), new Date(2012, 11, 31)])}
+          round={d3.timeMonth.round}
+          alwaysUseRounding={true}
+          xUnits={d3.timeMonths}
+        />
+      </ChartContext>
     </div>
   )
 }
