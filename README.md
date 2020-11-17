@@ -30,13 +30,14 @@ to each chart method usage. Most of the chart attributes are available with the 
 original function.
 
 ```javascript
-import { PieChart } from 'react-dc-js'
+import { PieChart } from 'react-dc-js';
+import crossfilter from 'crossfilter2';
 
 function YourChart() {
   const cx = crossfilter(data)
   const dimension = cx.dimension(d => d.propName)
 
-  return <BarChart dimension={dimension} group={dimension.group()} />
+  return <PieChart dimension={dimension} group={dimension.group()} />
 }
 ```
 
