@@ -51,7 +51,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-flow": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
-    "@testing-library/react": "^10.2.1",
+    "@testing-library/react": "^11.2.3",
     "@testing-library/react-hooks": "^3.2.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
