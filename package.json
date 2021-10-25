@@ -67,7 +67,7 @@
     "eslint-plugin-react-hooks": "2.5.1",
     "flow-bin": "^0.135.0",
     "jest": "^26.0.1",
-    "lint-staged": "^10.2.6",
+    "lint-staged": "^11.2.4",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
