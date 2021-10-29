@@ -1,8 +1,5 @@
-// @flow
-
 import React, { useContext, useEffect } from 'react'
 import { baseMixin } from '../mixins'
-import type { MixinProps } from '../mixins'
 import { combineMixins } from '../utils'
 import { ChartRegistry } from './chart-context'
 import { useChart } from './use-chart'
@@ -15,12 +12,9 @@ import 'dc/dist/style/dc.css'
  * @param mixins
  */
 
-export function BaseChart(
-  chartFunc: any => mixed,
-  mixins: Array<(any, MixinProps) => mixed> = [baseMixin]
-) {
+export function BaseChart(chartFunc, mixins = [baseMixin]) {
   const mixin = combineMixins(mixins)
-  return function Chart(props: $Shape<MixinProps>) {
+  return function Chart(props) {
     const [chart, chartRef] = useChart(chartFunc, props, mixin)
     const { dispatch } = useContext(ChartRegistry) || {}
 

@@ -1,20 +1,4 @@
-// @flow
-
-type Stack = {
-  group: Object,
-  name?: string,
-  accessor?: Function,
-}
-
-export type StackMixinProps = {
-  stack?: Stack,
-  stacks: Array<Stack>,
-}
-
-export function stackMixin(
-  chart: any,
-  props: StackMixinProps
-): $Shape<StackMixinProps> {
+export function stackMixin(chart, props) {
   const { stacks, stack, ...rest } = props
   const _stacks = stacks || (stack && [stack])
   _stacks &&

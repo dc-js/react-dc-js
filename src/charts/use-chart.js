@@ -1,19 +1,12 @@
-// @flow
-
 import { useEffect, useRef } from 'react'
 import { InvalidStateException } from 'dc'
-import type { MixinProps } from '../mixins'
 
 import { baseMixin } from '../mixins'
 import { combineMixins } from '../utils'
 
-export function useChart(
-  chartFunc: any => mixed,
-  props: $Shape<MixinProps>,
-  mixin: (any, MixinProps) => mixed = combineMixins([baseMixin])
-) {
-  const chartRef = useRef<null | any>(null)
-  const chart = useRef<null | any>(null)
+export function useChart(chartFunc, props, mixin = combineMixins([baseMixin])) {
+  const chartRef = useRef(null)
+  const chart = useRef(null)
   const isRendered = useRef(false)
 
   useEffect(() => {

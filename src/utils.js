@@ -1,12 +1,8 @@
-// @flow
-
-import type { MixinProps } from './mixins'
-
-export function combineMixins(mixins: Array<(any, MixinProps) => any> = []) {
-  return function (chart: any, props: MixinProps) {
+export function combineMixins(mixins = []) {
+  return function (chart, props) {
     // Transforms the received props into corresponding chart methods
     // Ensures that we can map only a subset of props to mixin methods
-    const unhandledProps: any = mixins.reduce(
+    const unhandledProps = mixins.reduce(
       (value, mixin) => mixin(chart, value),
       props
     )

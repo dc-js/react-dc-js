@@ -10,7 +10,7 @@ Our goal is to provide simple components to render endless dimensional charting 
 [crossfilter](http://crossfilter.github.io/crossfilter/) rendered using [d3.js](https://d3js.org/).
 
 > 👋️ **Note**: Dc.js for React is not yet fully finished and is still under heavy development.
-Documentation for specific chart properties won't be available before the 
+> Documentation for specific chart properties won't be available before the
 > [first stable release](https://github.com/dc-js/react-dc-js/projects/1).
 
 ![Preview](preview.gif)
@@ -30,8 +30,8 @@ to each chart method usage. Most of the chart attributes are available with the 
 original function.
 
 ```javascript
-import { PieChart } from 'react-dc-js';
-import crossfilter from 'crossfilter2';
+import { PieChart } from 'react-dc-js'
+import crossfilter from 'crossfilter2'
 
 function YourChart() {
   const cx = crossfilter(data)
