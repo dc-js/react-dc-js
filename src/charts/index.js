@@ -1,5 +1,3 @@
-// @flow
-
 import {
   barChart,
   boxPlot,
@@ -22,11 +20,11 @@ import {
   sunburstChart,
   textFilterWidget,
 } from 'dc'
-import { useChart } from '../charts/use-chart'
 import { baseMixin, stackMixin } from '../mixins'
 import { BaseChart } from './base-chart'
 import ChartContext from './chart-context'
 import { LineChart } from './line-chart'
+import { useChart } from './use-chart'
 
 export const BarChart = BaseChart(barChart, [baseMixin, stackMixin])
 export const BoxPlot = BaseChart(boxPlot)
