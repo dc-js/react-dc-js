@@ -34,7 +34,3 @@ updates:
     versions:
     - 7.12.10
     - 7.12.13
-  - dependency-name: "@babel/preset-flow"
-    versions:
-    - 7.12.1
-    - 7.12.13
