@@ -7,7 +7,7 @@ const events = [
   'onPostRedraw',
   'onFiltered',
   'onZoomed',
-]
+];
 
 /**
  * Transforms the previous props to dc.js compatible chart methods
@@ -18,10 +18,10 @@ const events = [
  * @param props
  */
 export function baseMixin(chart, props) {
-  const { filterHandler, showControls, id, ...rest } = props
+  const { filterHandler, showControls, id, ...rest } = props;
 
   // chart[showControls ? 'turnOffControls' : 'turnOnControls']()
-  filterHandler && chart.addFilterHandler(filterHandler)
-  events.forEach(event => event in rest && chart.on(event, rest[event]))
-  return rest
+  filterHandler && chart.addFilterHandler(filterHandler);
+  events.forEach(event => event in rest && chart.on(event, rest[event]));
+  return rest;
 }
