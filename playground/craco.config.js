@@ -5,7 +5,7 @@ const path = require('path')
  */
 module.exports = {
   webpack: {
-    // Allow webpack to load files outside of the src scope
+    // Allow webpack to load files outside the src scope
     configure: webpackConfig => {
       const scopePluginIndex = webpackConfig.resolve.plugins.findIndex(
         ({ constructor }) => constructor && constructor.name === 'ModuleScopePlugin'

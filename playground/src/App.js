@@ -8,7 +8,7 @@ import {
   BubbleChart,
   LineChart,
   ChartContext,
-} from '../../dist/es'
+} from 'react-dc-js'
 
 import './App.css'
 
