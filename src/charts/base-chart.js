@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from 'react'
-import { baseMixin } from '../mixins'
-import { combineMixins } from '../utils'
-import { ChartRegistry } from './chart-context'
-import { useChart } from './use-chart'
+import React, { useContext, useEffect } from 'react';
+import { baseMixin } from '../mixins';
+import { combineMixins } from '../utils';
+import { ChartRegistry } from './chart-context';
+import { useChart } from './use-chart';
 
-import 'dc/dist/style/dc.css'
+import 'dc/dist/style/dc.css';
 
 /**
  * A generic chart component factory
@@ -13,18 +13,18 @@ import 'dc/dist/style/dc.css'
  */
 
 export function BaseChart(chartFunc, mixins = [baseMixin]) {
-  const mixin = combineMixins(mixins)
+  const mixin = combineMixins(mixins);
   return function Chart(props) {
-    const [chart, chartRef] = useChart(chartFunc, props, mixin)
-    const { dispatch } = useContext(ChartRegistry) || {}
+    const [chart, chartRef] = useChart(chartFunc, props, mixin);
+    const { dispatch } = useContext(ChartRegistry) || {};
 
     useEffect(() => {
       if (dispatch && props.id) {
-        dispatch({ type: 'register', chart, id: props.id })
-        return () => dispatch({ type: 'remove', chart, id: props.id })
+        dispatch({ type: 'register', chart, id: props.id });
+        return () => dispatch({ type: 'remove', chart, id: props.id });
       }
-    }, [props.id, chart, dispatch])
+    }, [props.id, chart, dispatch]);
 
-    return <div ref={chartRef} />
-  }
+    return <div ref={chartRef} />;
+  };
 }

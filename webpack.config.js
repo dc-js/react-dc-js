@@ -1,7 +1,7 @@
-const path = require('path')
+const path = require('path');
 
-const isEnvProduction = process.env.NODE_ENV === 'production'
-const isEnvDevelopment = process.env.NODE_ENV === 'development'
+const isEnvProduction = process.env.NODE_ENV === 'production';
+const isEnvDevelopment = process.env.NODE_ENV === 'development';
 
 const config = target => ({
   mode: isEnvProduction ? 'production' : 'development',
@@ -88,7 +88,7 @@ const config = target => ({
     },
     dc: 'dc',
   },
-})
+});
 
 // noinspection WebpackConfigHighlighting
-module.exports = [config('umd'), config('module')]
+module.exports = [config('umd'), config('module')];
