@@ -6,13 +6,14 @@ const isEnvDevelopment = process.env.NODE_ENV === 'development'
 const config = target => ({
   mode: isEnvProduction ? 'production' : 'development',
   // Stop compilation early in production
-  bail: isEnvProduction,
   entry: ['./index.js'],
   performance: {
     hints: false,
   },
   context: path.join(__dirname, 'src'),
-  devtool: isEnvDevelopment ? 'inline-source-map' : false,
+  devtool: isEnvProduction
+    ? 'source-map'
+    : isEnvDevelopment && 'cheap-module-source-map',
   module: {
     rules: [
       // Disable require.ensure as it's not a standard language feature.
@@ -38,7 +39,7 @@ const config = target => ({
               compact: isEnvProduction,
             },
           },
-          // Process any JS outside of the app with Babel.
+          // Process any JS outside the app with Babel.
           {
             test: /\.(js|mjs)$/,
             exclude: /@babel(?:\/|\\{1,2})runtime/,
@@ -66,8 +67,13 @@ const config = target => ({
   output: {
     path: path.join(__dirname, 'dist/'),
     filename: `react-dc.${target}.js`,
-    library: 'ReactDc',
-    libraryTarget: target,
+    library: {
+      name: target !== 'module' ? 'ReactDc' : undefined,
+      type: target,
+    },
+  },
+  experiments: {
+    outputModule: target === 'module',
   },
   optimization: {
     minimize: isEnvProduction,
@@ -78,10 +84,11 @@ const config = target => ({
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'react',
+      module: 'react',
     },
     dc: 'dc',
   },
 })
 
 // noinspection WebpackConfigHighlighting
-module.exports = [config('umd')]
+module.exports = [config('umd'), config('module')]
