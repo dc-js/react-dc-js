@@ -66,7 +66,7 @@ To enable hot compilation while experimenting in the playground, run in a new ta
 $ npm run build:watch
 ```
 
-react-dc-js is linted with `prettier` and provides `flow.js` as a static type checker.
+react-dc-js is linted with `prettier`.
 
 ## License
 
