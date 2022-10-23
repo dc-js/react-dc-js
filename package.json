@@ -7,7 +7,11 @@
   "jsnext:main": "dist/react-dc.module.js",
   "scripts": {
     "test": "jest --silent",
-    "build": "webpack -p",
+    "build": "npm run build:umd && npm run build:es",
+    "build:umd": "NODE_ENV=production webpack",
+    "build:es": "BABEL_ENV=module babel src -d dist/es",
+    "build:watch": "npm run build:es -- --watch",
+    "flow": "flow",
     "lint": "eslint src",
     "prepare": "npm run lint && npm run build && npm run test"
   },
@@ -47,7 +51,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@testing-library/react": "^11.2.3",
-    "@testing-library/react-hooks": "^5.1.2",
+    "@testing-library/react-hooks": "^8.0.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^5.2.4",
@@ -59,9 +63,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "2.5.1",
+    "eslint-plugin-react-app": "^6.2.2",
+    "flow-bin": "^0.135.0",
     "jest": "^26.0.1",
-    "lint-staged": "^10.2.6",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -69,7 +74,7 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^2.0.0",
     "webpack": "^5.69.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^4.10.0"
   },
   "jest": {
     "moduleNameMapper": {
